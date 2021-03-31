@@ -1,6 +1,6 @@
 # geofence
 
-A new Flutter project.
+A simple geofence flutter project to simulate how geofence work.
 
 ## Getting Started
 
