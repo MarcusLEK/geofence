@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:geofence/app/modules/check/views/check_view.dart';
+import 'package:geofence/app/modules/settings/views/settings_view.dart';
 
 import 'package:get/get.dart';
 
@@ -27,12 +29,8 @@ class HomeView extends GetView<HomeController> {
         ),
         body: TabBarView(
           children: <Widget>[
-            Center(
-              child: Text('Settings goes here'),
-            ),
-            Center(
-              child: Text('checking of geofence goes here'),
-            ),
+            SettingsView(),
+            CheckView(),
           ],
         ),
       ),

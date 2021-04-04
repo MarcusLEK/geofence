@@ -8,13 +8,9 @@ class CheckView extends GetView<CheckController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('CheckView'),
-        centerTitle: true,
-      ),
       body: Center(
         child: Text(
-          'CheckView is working',
+          'Checks and display if in geofence area',
           style: TextStyle(fontSize: 20),
         ),
       ),
