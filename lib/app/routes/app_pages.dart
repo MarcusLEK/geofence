@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:geofence/app/modules/check/bindings/check_binding.dart';
+import 'package:geofence/app/modules/check/views/check_view.dart';
 import 'package:geofence/app/modules/home/bindings/home_binding.dart';
 import 'package:geofence/app/modules/home/views/home_view.dart';
 import 'package:geofence/app/modules/settings/bindings/settings_binding.dart';
@@ -20,6 +22,11 @@ class AppPages {
       name: _Paths.SETTINGS,
       page: () => SettingsView(),
       binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHECK,
+      page: () => CheckView(),
+      binding: CheckBinding(),
     ),
   ];
 }
