@@ -1,13 +1,9 @@
-import 'dart:developer';
-
 import 'package:geofence/app/data/models/wifi.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wifi_info_flutter/wifi_info_flutter.dart';
 
 class CheckController extends GetxController {
-  //TODO: Implement CheckController
-
   final wifi = Wifi().obs;
 
   @override
@@ -35,5 +31,19 @@ class CheckController extends GetxController {
 
   checkPermission() async {
     var locationStatus = await Permission.location.status;
+
+    print(locationStatus);
+
+    if (!locationStatus.isGranted) {
+      await Permission.location.request();
+    }
+
+    if (locationStatus.isPermanentlyDenied) {
+      openAppSettings();
+    }
+
+    if (await Permission.locationWhenInUse.serviceStatus.isEnabled) {
+      updateWifi();
+    }
   }
 }

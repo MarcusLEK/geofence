@@ -22,8 +22,8 @@ class CheckView extends GetView<CheckController> {
               );
             }),
             ElevatedButton(
-              onPressed: () {
-                controller.updateWifi();
+              onPressed: () async {
+                controller.checkPermission();
               },
               child: Text('Check Geofence'),
             ),
