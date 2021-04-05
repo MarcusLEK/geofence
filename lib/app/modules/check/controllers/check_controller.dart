@@ -1,11 +1,16 @@
+import 'dart:developer';
+
+import 'package:geofence/app/data/models/wifi.dart';
 import 'package:get/get.dart';
+import 'package:wifi_info_flutter/wifi_info_flutter.dart';
 
 class CheckController extends GetxController {
   //TODO: Implement CheckController
 
-  final count = 0.obs;
+  final wifi = Wifi().obs;
+
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
   }
 
@@ -16,5 +21,14 @@ class CheckController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+
+  updateWifi() async {
+    var wifiName = await WifiInfo().getWifiName();
+
+    // log(wifiName);
+
+    wifi.update((value) {
+      value.wifiName = wifiName;
+    });
+  }
 }
