@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:geofence/app/data/models/wifi.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:wifi_info_flutter/wifi_info_flutter.dart';
 
 class CheckController extends GetxController {
@@ -30,5 +31,9 @@ class CheckController extends GetxController {
     wifi.update((value) {
       value.wifiName = wifiName;
     });
+  }
+
+  checkPermission() async {
+    var locationStatus = await Permission.location.status;
   }
 }
