@@ -38,7 +38,7 @@ class CheckController extends GetxController {
     });
   }
 
-  updateStatus(String stat) {
+  updateGeoStatus(String stat) {
     status.update((val) {
       val.geoStatus = stat;
     });
@@ -46,9 +46,9 @@ class CheckController extends GetxController {
 
   checkGeofence() {
     if (settingsController.setting.value.wifiName == wifi.value.wifiName) {
-      updateStatus('Inside');
+      updateGeoStatus('Inside');
     } else {
-      updateStatus('Outside');
+      updateGeoStatus('Outside');
     }
   }
 

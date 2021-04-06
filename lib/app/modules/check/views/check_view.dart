@@ -15,13 +15,29 @@ class CheckView extends GetView<CheckController> {
           children: [
             Obx(() {
               return Text(
-                "Wifi Name: ${(controller.wifi.value.wifiName == null) ? 'Not Connected' : controller.wifi.value.wifiName}",
+                "Wifi Name: ${(controller.wifi.value.wifiName == null) ? 'Outside' : controller.wifi.value.wifiName}",
+                style: TextStyle(
+                  fontSize: 20,
+                ),
               );
             }),
+            Text(
+              "Geofence Status:",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 25,
+              ),
+            ),
             Obx(() {
               return Text(
-                "Geofence Status: \n\n${controller.status.value.geoStatus}",
+                "${controller.status.value.geoStatus}",
                 textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: (controller.status.value.geoStatus == 'Outside')
+                      ? Colors.red
+                      : Colors.green,
+                  fontSize: 40,
+                ),
               );
             }),
             ElevatedButton(
