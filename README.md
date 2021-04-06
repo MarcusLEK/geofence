@@ -2,15 +2,19 @@
 
 A simple geofence flutter project to simulate how geofence work.
 
-## Getting Started
+## Getting Started - How to run the app
 
-This project is a starting point for a Flutter application.
+There are 2 ways to test this app.
+1. Install the apk
+2. Connecting a mobile device(android) 
 
-A few resources to get you started if this is your first Flutter project:
+- clone the repo
+- run "flutter pub get"
+- connect a mobile phone and run the code
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### limitations
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Not able to work on emulators due to it requiring locations services and wifi to be enabled 
+- Will not work with VPN and mobile data
+- Will not work on IOS devices(not tested)
+- May not work on older Android devices
