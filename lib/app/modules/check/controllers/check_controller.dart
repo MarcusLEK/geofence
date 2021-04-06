@@ -45,7 +45,10 @@ class CheckController extends GetxController {
   }
 
   checkGeofence() {
-    if (settingsController.setting.value.wifiName == wifi.value.wifiName) {
+    String storedWifi =
+        (settingsController.setting.value.wifiName).toLowerCase();
+    String wifiName = (wifi.value.wifiName).toLowerCase();
+    if (storedWifi == wifiName) {
       updateGeoStatus('Inside');
     } else {
       updateGeoStatus('Outside');
