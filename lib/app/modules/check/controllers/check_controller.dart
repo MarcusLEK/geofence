@@ -1,14 +1,19 @@
+import 'dart:developer';
+
 import 'package:connectivity/connectivity.dart';
-import 'package:geofence/app/data/models/wifi.dart';
-import 'package:geofence/app/modules/settings/controllers/settings_controller.dart';
+import 'package:geofence/app/data/models/status.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wifi_info_flutter/wifi_info_flutter.dart';
 
+import '../../../data/models/wifi.dart';
+import '../../settings/controllers/settings_controller.dart';
+
 class CheckController extends GetxController {
   final wifi = Wifi().obs;
+  final SettingsController settingsController = Get.put(SettingsController());
 
-  final status = 'Outside'.obs;
+  final status = Status().obs;
 
   @override
   void onInit() async {
@@ -33,6 +38,20 @@ class CheckController extends GetxController {
     });
   }
 
+  updateStatus(String stat) {
+    status.update((val) {
+      val.geoStatus = stat;
+    });
+  }
+
+  checkGeofence() {
+    if (settingsController.setting.value.wifiName == wifi.value.wifiName) {
+      updateStatus('Inside');
+    } else {
+      updateStatus('Outside');
+    }
+  }
+
   checkPermission() async {
     var locationStatus = await Permission.location.status;
     var connectivityStatus = await (Connectivity().checkConnectivity());
@@ -50,6 +69,8 @@ class CheckController extends GetxController {
     if (await Permission.locationWhenInUse.serviceStatus.isEnabled &&
         connectivityStatus == ConnectivityResult.wifi) {
       updateWifi();
+      checkGeofence();
+      print(status.value.geoStatus);
       return true;
     } else {
       return false;

@@ -74,6 +74,13 @@ class SettingsView extends GetView<SettingsController> {
                       fontSize: textSize,
                     ),
                   ),
+                  Text(
+                    'Note: wifi name is case sensitive',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
                   TextFormField(
                     controller: wifiNameController,
                     validator: (val) {

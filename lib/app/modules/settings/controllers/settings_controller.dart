@@ -1,7 +1,6 @@
-import 'dart:developer';
-
-import 'package:geofence/app/data/models/setting.dart';
 import 'package:get/get.dart';
+
+import '../../../data/models/setting.dart';
 
 class SettingsController extends GetxController {
   final setting = Setting().obs;

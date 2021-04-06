@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 
-import 'package:geofence/app/modules/check/bindings/check_binding.dart';
-import 'package:geofence/app/modules/check/views/check_view.dart';
-import 'package:geofence/app/modules/home/bindings/home_binding.dart';
-import 'package:geofence/app/modules/home/views/home_view.dart';
-import 'package:geofence/app/modules/settings/bindings/settings_binding.dart';
-import 'package:geofence/app/modules/settings/views/settings_view.dart';
+import '../modules/check/bindings/check_binding.dart';
+import '../modules/check/views/check_view.dart';
+import '../modules/home/bindings/home_binding.dart';
+import '../modules/home/views/home_view.dart';
+import '../modules/settings/bindings/settings_binding.dart';
+import '../modules/settings/views/settings_view.dart';
 
 part 'app_routes.dart';
 

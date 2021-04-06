@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:geofence/app/modules/check/views/check_view.dart';
-import 'package:geofence/app/modules/settings/views/settings_view.dart';
-
 import 'package:get/get.dart';
 
+import '../../check/views/check_view.dart';
+import '../../settings/views/settings_view.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
