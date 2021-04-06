@@ -7,7 +7,6 @@ import '../controllers/check_controller.dart';
 
 class CheckView extends GetView<CheckController> {
   final CheckController controller = Get.put(CheckController());
-  final SettingsController setting = Get.put(SettingsController());
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +20,43 @@ class CheckView extends GetView<CheckController> {
                 "Wifi Name: ${controller.wifi.value.wifiName}",
               );
             }),
+            Obx(() {
+              return Text(
+                "Geofence Status: \n\n${controller.status.value}",
+                textAlign: TextAlign.center,
+              );
+            }),
             ElevatedButton(
               onPressed: () async {
-                controller.checkPermission();
+                var res = await controller.checkPermission();
+                print(res);
+                if (!res) {
+                  Get.defaultDialog(
+                    title: 'Connectivity Alert!',
+                    content: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'This app requires locations services and wifi to work properly.',
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Please enable it and try again.',
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                    actions: <Widget>[
+                      ElevatedButton(
+                        child: Text('Ok'),
+                        onPressed: () {
+                          Get.back();
+                        },
+                      ),
+                    ],
+                  );
+                }
               },
               child: Text('Check Geofence'),
             ),
