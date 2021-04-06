@@ -12,6 +12,10 @@ There are 2 ways to test this app.
 - run "flutter pub get"
 - connect a mobile phone and run the code
 
+### Tested Device Details
+
+Oneplus 6, Android 10
+
 ### limitations
 
 - Not able to work on emulators due to it requiring locations services and wifi to be enabled 
