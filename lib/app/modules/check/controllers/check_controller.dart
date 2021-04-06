@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:connectivity/connectivity.dart';
 import 'package:geofence/app/data/models/status.dart';
 import 'package:get/get.dart';
